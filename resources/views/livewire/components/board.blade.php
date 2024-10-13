@@ -161,7 +161,7 @@ new class extends Component {
     </button>
 
     @if($this->gameStatus === GameStatus::Pending)
-        <livewire:components.clipboard :gameKey="$gameKey"/>
+        <livewire:components.share-game :gameKey="$gameKey"/>
     @endif
 
     @if($this->showResult)
