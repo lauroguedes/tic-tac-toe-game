@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Our Toggle Switch Game</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-        <!-- Styles -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="antialiased font-sans flex flex-col items-center justify-center min-h-screen">
-        <livewire:toggle />
-    </body>
-</html>
+<x-app-layout>
+    <div class="w-full lg:w-2/3 text-center">
+        <p class="text-4xl mb-3 text-gray-900">Come have fun with <span class="text-red-700">tic-tac-toe</span> and show that you can beat your opponent with smart moves!</p>
+        <a href="{{ route('game.play') }}"
+           class="text-blue-700 py-2 px-4 text-4xl underline underline-offset-1 hover:text-red-700">
+            Start Game
+        </a>
+    </div>
+</x-app-layout>

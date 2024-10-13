@@ -9,7 +9,7 @@ new class extends Component {
 
 }; ?>
 
-<div class="flex justify-center m-3 caveat-font">
+<div class="flex justify-center m-3">
     <span class="flex justify-center items-center text-3xl font-bold py-0.5">
     @if($active)
         <span class="relative flex h-3 w-3">

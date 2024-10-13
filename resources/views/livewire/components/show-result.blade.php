@@ -65,24 +65,22 @@ new class extends Component {
     }
 }; ?>
 
-<div class="caveat-font">
-    <div class="flex flex-col text-center space-y-5">
-        <div>{!! $this->getExpression() !!}</div>
-        @if($gameStatus === GameStatus::Win || $gameStatus === GameStatus::Draw)
-            <div class="flex justify-center items-center space-x-4">
-                <button wire:click="restartGame"
-                        class="font-bold text-blue-700 underline underline-offset-2 uppercase hover:opacity-80 text-lg">
-                    Restart Game
-                </button>
-                <button wire:click="finishGame"
-                        class="font-bold text-red-700 underline underline-offset-2 uppercase hover:opacity-80 text-lg">
-                    Finish Game
-                </button>
-            </div>
-        @endif
+<div class="flex flex-col text-center space-y-5">
+    <div>{!! $this->getExpression() !!}</div>
+    @if($gameStatus === GameStatus::Win || $gameStatus === GameStatus::Draw)
+        <div class="flex justify-center items-center space-x-4">
+            <button wire:click="restartGame"
+                    class="font-bold text-blue-700 underline underline-offset-2 uppercase hover:opacity-80 text-lg">
+                Restart Game
+            </button>
+            <button wire:click="finishGame"
+                    class="font-bold text-red-700 underline underline-offset-2 uppercase hover:opacity-80 text-lg">
+                Finish Game
+            </button>
+        </div>
+    @endif
 
-        @if($gameStatus === GameStatus::Lose)
-            <p class="text-blue-700 text-xl">Wait until your friend restarts or finishes the game ;).</p>
-        @endif
-    </div>
+    @if($gameStatus === GameStatus::Lose)
+        <p class="text-blue-700 text-xl">Wait until your friend restarts or finishes the game ;).</p>
+    @endif
 </div>

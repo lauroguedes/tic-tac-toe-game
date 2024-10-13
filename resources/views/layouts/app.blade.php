@@ -8,29 +8,31 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            <livewire:layout.navigation />
+    <body class="font-sans text-gray-900 antialiased caveat-font">
+        <div style="background-image: url('{{ asset('images/bg_notebook_leaf.png') }}')" class="min-h-screen grid grid-cols-1 content-between p-6 bg-transparent bg-center bg-cover bg-no-repeat">
+            <header class="flex justify-center items-center">
+                <a href="/" wire:navigate>
+                    <x-application-logo class="w-16 h-16 fill-current text-gray-500 -skew-x-12 opacity-40" />
+                </a>
+            </header>
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
+            <main class="w-full flex flex-col justify-center items-center overflow-hidden">
                 {{ $slot }}
             </main>
+
+            <footer class="text-center">
+                <span class="text-gray-400">
+                    Created with <span class="text-red-300"><3</span> by <a href="https://lauroguedes.dev" target="_blank" class="underline underline-offset-1 hover:opacity-80">Lauro Guedes</a> |
+                    <a href="https://github.com/lauroguedes/tic-tac-toe-game" target="_blank" class="underline underline-offset-1 hover:opacity-80">Github Project</a>
+                </span>
+            </footer>
         </div>
     </body>
 </html>

@@ -22,7 +22,7 @@ new class extends Component {
     }
 }; ?>
 
-<div class="caveat-font flex flex-col justify-center items-center text-center">
+<div class="flex flex-col justify-center items-center text-center">
     <div class="font-bold text-4xl mb-3">Share with your friend and play together :)</div>
     <div class="flex justify-center items-center text-3xl space-x-4">
         <livewire:components.clipboard :text="$endpoint"/>

@@ -157,7 +157,7 @@ new class extends Component {
 }; ?>
 
 <div>
-    <button wire:click="$dispatch('close-game')" class="absolute top-5 right-5 p-3 text-xl caveat-font text-red-700/60 hover:opacity-70">( x ) Close Game
+    <button wire:click="$dispatch('close-game')" class="absolute top-5 right-5 p-3 text-xl text-red-700/60 hover:opacity-70">( x ) Close Game
     </button>
 
     @if($this->gameStatus === GameStatus::Pending)

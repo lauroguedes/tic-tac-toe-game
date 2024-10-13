@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Cache;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-#[Layout('layouts.guest')]
+#[Layout('layouts.app')]
 class Play extends Component
 {
     public string $gameKey;
