@@ -19,7 +19,7 @@ class MouseMoved implements ShouldBroadcastNow
     public ?array $position;
     public ?string $color;
 
-    public function __construct(array $payload)
+    public function __construct(array $payload, public string $gameId)
     {
         $this->userId = $payload['userId'];
         $this->position = $payload['position'];
@@ -34,7 +34,7 @@ class MouseMoved implements ShouldBroadcastNow
     public function broadcastOn(): array
     {
         return [
-            new Channel('mouse-movement'),
+            new Channel('mouse-movement.' . $this->gameId),
         ];
     }
 }

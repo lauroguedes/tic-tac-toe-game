@@ -93,6 +93,8 @@ new class extends Component {
         );
 
         Cache::forever($this->gameStatusCacheKey, $this->gameStatus);
+
+        $this->dispatch('game-status-changed', $this->gameStatus);
     }
 
     #[On('echo:restart.{gameId},RestartGame')]
@@ -128,6 +130,7 @@ new class extends Component {
         Cache::forget($this->gameKey);
 
         session()->forget('player');
+        session()->forget("{$this->player['id']}_{$this->gameId}");
 
         redirect(route('game.home'));
     }
@@ -148,7 +151,6 @@ new class extends Component {
         FinishGame::dispatch($this->gameId);
     }
 
-    #[Computed]
     public function showResult(): bool
     {
         return $this->gameStatus !== (GameStatus::InProgress || GameStatus::Pending);
@@ -164,7 +166,7 @@ new class extends Component {
         <livewire:components.share-game :gameKey="$gameKey"/>
     @endif
 
-    @if($this->showResult)
+    @if($this->showResult())
         <livewire:components.show-result :gameStatus="$gameStatus" :gameId="$gameId"/>
     @endif
 

@@ -6,4 +6,5 @@
             Start Game
         </a>
     </div>
+{{--    <livewire:components.mouse-movement/>--}}
 </x-app-layout>
