@@ -22,7 +22,7 @@ git clone https://github.com/lauroguedes/tic-tac-toe-game.git
 2. Navigate to the project directory:
 
 ```bash
-cd tic-tac-toe
+cd tic-tac-toe-game
 ```
 
 3. Install the project dependencies using Composer:
@@ -37,7 +37,7 @@ composer install
 npm install
 ```
 
-5. Copy the `.env.example` file to `.env` and configure the database connection:
+5. Copy the `.env.example` file to `.env`:
 
 ```bash
 cp .env.example .env
@@ -61,7 +61,13 @@ php artisan reverb:install
 php artisan reverb:start
 ```
 
-9. Start the development server:
+9. Start the front end server:
+
+```bash
+npm run dev
+```
+
+10. Start the development server:
 
 ```bash
 php artisan serve
