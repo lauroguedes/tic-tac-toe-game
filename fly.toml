@@ -9,17 +9,17 @@ console_command = 'php /var/www/html/artisan tinker'
 
 [build]
   [build.args]
-    NODE_VERSION = '18'
-    PHP_VERSION = '8.2'
+    NODE_VERSION = '20'
+    PHP_VERSION = '8.3'
 
 [env]
+  APP_NAME='Tic Tac Toe'
   APP_ENV = 'production'
   CACHE_STORE = 'redis'
   LOG_CHANNEL = 'stderr'
   LOG_LEVEL = 'info'
   LOG_STDERR_FORMATTER = 'Monolog\Formatter\JsonFormatter'
-  SESSION_DRIVER = 'cookie'
-  SESSION_SECURE_COOKIE = 'true'
+  SESSION_DRIVER = 'redis'
 
 [http_service]
   internal_port = 8080
