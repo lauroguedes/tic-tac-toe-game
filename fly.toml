@@ -33,6 +33,14 @@ console_command = 'php /var/www/html/artisan tinker'
   source='storage_vol'
   destination='/var/www/html/storage'
 
+[[services]]
+  internal_port = 6060
+  processes = ["reverb"]
+
+[processes]
+  app = ""
+  reverb = "php artisan reverb:start"
+
 [[vm]]
   memory = '1gb'
   cpu_kind = 'shared'
