@@ -20,10 +20,11 @@ console_command = 'php /var/www/html/artisan tinker'
   LOG_LEVEL = 'info'
   LOG_STDERR_FORMATTER = 'Monolog\Formatter\JsonFormatter'
   SESSION_DRIVER = 'redis'
-  REVERB_APP_ID = '674584'
-  REVERB_APP_KEY = 'u0q5ycbcqcmmbapz54vz'
-  REVERB_HOST = 'reverb-server.fly.dev'
+  REVERB_APP_ID = '991707'
+  REVERB_APP_KEY = 'ku8btiakcyc7damobmld'
+  REVERB_HOST = 'tic-tac-toe-game.fly.dev'
   REVERB_PORT=443
+  REVERB_SERVER_PORT = 6060
   VITE_REVERB_APP_KEY='${REVERB_APP_KEY}'
   VITE_REVERB_HOST='${REVERB_HOST}'
   VITE_REVERB_PORT='${REVERB_PORT}'
@@ -37,9 +38,24 @@ console_command = 'php /var/www/html/artisan tinker'
   min_machines_running = 0
   processes = ['app']
 
+[[services]]
+  internal_port = 6060
+  protocol = "tcp"
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['reverb']
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+[processes]
+  reverb = 'php /var/www/html/artisan reverb:start --debug'
+
 [mounts]
   source='storage_vol'
   destination='/var/www/html/storage'
+  processes = ['app']
 
 [[vm]]
   memory = '1gb'
