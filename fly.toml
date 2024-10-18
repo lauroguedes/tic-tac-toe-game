@@ -50,6 +50,7 @@ console_command = 'php /var/www/html/artisan tinker'
     port = 443
 
 [processes]
+  app = ''
   reverb = 'php /var/www/html/artisan reverb:start --debug'
 
 [mounts]
