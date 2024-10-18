@@ -22,10 +22,10 @@ console_command = 'php /var/www/html/artisan tinker'
   SESSION_DRIVER = 'redis'
   REVERB_APP_ID = '674584'
   REVERB_APP_KEY = 'u0q5ycbcqcmmbapz54vz'
-  REVERB_SERVER_HOST = 'https://reverb-server.fly.dev/'
-  REVERB_PORT=8080
+  REVERB_HOST = 'https://reverb-server.fly.dev/'
+  REVERB_PORT=6060
   VITE_REVERB_APP_KEY='${REVERB_APP_KEY}'
-  VITE_REVERB_HOST='${REVERB_SERVER_HOST}'
+  VITE_REVERB_HOST='${REVERB_HOST}'
   VITE_REVERB_PORT='${REVERB_PORT}'
   VITE_REVERB_SCHEME='${REVERB_SCHEME}'
 
