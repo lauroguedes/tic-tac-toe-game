@@ -1,7 +1,7 @@
 import axios from 'axios';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import ClipboardJS from 'clipboard';
-window.ClipboardJS = ClipboardJS;
+window.clipboard = new ClipboardJS('.copy-button');
 
 window.axios = axios;
 
