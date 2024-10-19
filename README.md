@@ -1,7 +1,6 @@
 ## Tic Tac Toe Game
-This is a simple Tic Tac Toe game implemented in Laravel and Livewire. The game allows two players to take turns marking
-spaces on a 3x3 grid until one of them wins or the game ends in a draw. It allows players to play against each other or
-against each other in real-time.
+This is a simple Tic Tac Toe game implemented in Laravel, Livewire and Reverb. The game allows two players to take turns marking
+spaces on a 3x3 grid until one of them wins or the game ends in a draw. It allows players to play against each other in real-time.
 
 ### Stack
 - PHP 8.3
@@ -9,6 +8,10 @@ against each other in real-time.
 - Livewire 3
 - Reverb
 - Tailwind CSS
+
+### Libs
+- [ClipboardJS](https://clipboardjs.com/)
+- [JSConfetti](https://github.com/loonywizard/js-confetti)
 
 ### Installation
 To run this project, you need to have PHP and Composer installed on your environment.
