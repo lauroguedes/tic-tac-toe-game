@@ -16,6 +16,8 @@ class Play extends Component
 
     public ?string $gameId = null;
 
+    public ?string $symbol = null;
+
     #[Locked]
     public string $userId;
 
@@ -60,6 +62,8 @@ class Play extends Component
         $this->userId = session('player')['id'] . '_' . $this->gameId;
 
         $this->userColors[$this->userId] = $this->generateRandomColor();
+
+        //$this->symbol = session('player')['symbol'];
     }
 
     #[On('echo:mouse-movement.{gameId},MouseMoved')]
@@ -70,6 +74,8 @@ class Play extends Component
             if (!isset($this->userColors[$payload['userId']])) {
                 $this->userColors[$payload['userId']] = $this->generateRandomColor();
             }
+
+            $this->symbol = $payload['symbol'];
         } else {
             unset($this->mousePositions[$payload['userId']]);
         }
@@ -80,6 +86,7 @@ class Play extends Component
         $payload = [
             'userId' => $this->userId,
             'position' => $position,
+            'symbol' => session('player')['symbol'],
             'color' => $this->userColors[$this->userId],
         ];
 
@@ -94,6 +101,7 @@ class Play extends Component
             new MouseMoved([
                 'userId' => $this->userId,
                 'position' => null,
+                'symbol' => null,
                 'color' => null,
             ], $this->gameId)
         )->toOthers();

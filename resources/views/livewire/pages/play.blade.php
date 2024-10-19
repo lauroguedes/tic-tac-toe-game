@@ -41,6 +41,7 @@
                       top: calc(50% + ${position.y * 50}%);
                       background-color: ${$wire.userColors[userId] || '#000000'};`"
         >
+            <span class="text-4xl text-gray-900/50">{{ $symbol }}</span>
         </div>
     </template>
     <livewire:components.board :gameKey="$gameKey"/>

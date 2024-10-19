@@ -29,9 +29,9 @@
 
             <footer class="text-center">
                 <div class="text-gray-400 flex justify-center">
-                    <span class="px-1">Crafted by an Artisan <span class="text-blue-300">:)</span> <a href="https://lauroguedes.dev" target="_blank" class="underline underline-offset-1 hover:opacity-80">Lauro Guedes</a></span> |
-                    <a href="https://github.com/lauroguedes/tic-tac-toe-game" target="_blank" class="px-1 underline underline-offset-1 hover:opacity-80">Github Project</a> |
-                    <a href="https://buymeacoffee.com/lauroguedes" target="_blank" class="px-1 underline underline-offset-1 hover:opacity-80">Buy me a coffee</a>
+                    <span class="px-1">Crafted by an Artisan <a href="https://lauroguedes.dev" target="_blank" class="underline underline-offset-1 hover:text-gray-600">Lauro Guedes <span class="text-blue-300">:)</span></a></span> |
+                    <a href="https://github.com/lauroguedes/tic-tac-toe-game" target="_blank" class="px-1 underline underline-offset-1 hover:text-gray-600">Github Project</a> |
+                    <a href="https://buymeacoffee.com/lauroguedes" target="_blank" class="px-1 underline underline-offset-1 hover:text-gray-600">Buy me a coffee</a>
                 </div>
             </footer>
         </div>

@@ -1,7 +1,13 @@
 import axios from 'axios';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+
+// ClipboardJS Dependency
 import ClipboardJS from 'clipboard';
 window.clipboard = new ClipboardJS('.copy-button');
+
+// JS Confetti Dependency
+import JSConfetti from 'js-confetti';
+window.jsConfetti = new JSConfetti();
 
 window.axios = axios;
 

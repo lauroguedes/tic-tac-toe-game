@@ -18,11 +18,13 @@ class MouseMoved implements ShouldBroadcastNow
     public string $userId;
     public ?array $position;
     public ?string $color;
+    public ?string $symbol;
 
     public function __construct(array $payload, public string $gameId)
     {
         $this->userId = $payload['userId'];
         $this->position = $payload['position'];
+        $this->symbol = $payload['symbol'];
         $this->color = $payload['color'];
     }
 

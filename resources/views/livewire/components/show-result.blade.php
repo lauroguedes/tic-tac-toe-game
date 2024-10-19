@@ -74,7 +74,16 @@ new class extends Component {
     }
 }; ?>
 
-<div class="flex flex-col text-center space-y-5">
+<div x-data="{
+    gameStatus: $wire.entangle('gameStatus'),
+    init() {
+        this.$watch('gameStatus', (value) => {
+            if (value === 'win') {
+                jsConfetti.addConfetti();
+            }
+        });
+    }
+ }" class="flex flex-col text-center space-y-5">
     <div>{!! $this->getExpression() !!}</div>
     @if($gameStatus === GameStatus::Win || $gameStatus === GameStatus::Draw)
         <div class="flex justify-center items-center space-x-4">
