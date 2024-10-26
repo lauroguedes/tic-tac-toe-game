@@ -16,7 +16,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased caveat-font">
-        <div style="background-image: url('{{ asset('images/bg_notebook_leaf.png') }}')" class="min-h-screen grid grid-cols-1 content-between p-6 bg-transparent bg-center bg-cover bg-no-repeat">
+        <div style="background-image: url('{{ asset('storage/images/bg_notebook_leaf.png') }}')" class="min-h-screen grid grid-cols-1 content-between p-6 bg-transparent bg-center bg-cover bg-no-repeat">
             <header class="flex justify-center items-center">
                 <a href="/" wire:navigate>
                     <x-application-logo class="w-16 h-16 fill-current text-gray-500 -skew-x-12 opacity-40" />
