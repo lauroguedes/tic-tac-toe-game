@@ -34,27 +34,17 @@ class Play extends Component
 
     public function mount(string $gameKey = null): void
     {
+        if (!session()->has('player')) {
+            session()->put('player', [
+                'id' => str()->of(str()->ulid())->lower(),
+                'symbol' => $gameKey ? 'O' : 'X',
+            ]);
+        }
+
+        $this->gameKey = $gameKey ?? session('player')['id'];
+
         if (!$gameKey) {
-            if (!session()->has('player')){
-                session()->put('player', [
-                    'id' => str()->of(str()->ulid())->lower(),
-                    'symbol' => 'X',
-                ]);
-                $this->gameKey = session('player')['id'];
-
-                Cache::forever($this->gameKey, uniqid('game_', true));
-            } else {
-                $this->gameKey = session('player')['id'];
-            }
-        } else {
-            if (!session()->has('player')) {
-                session()->put('player', [
-                    'id' => str()->of(str()->ulid())->lower(),
-                    'symbol' => 'O',
-                ]);
-            }
-
-            $this->gameKey = $gameKey;
+            Cache::forever($this->gameKey, uniqid('game_', true));
         }
 
         $this->gameId = Cache::get($this->gameKey);
@@ -62,8 +52,6 @@ class Play extends Component
         $this->userId = session('player')['id'] . '_' . $this->gameId;
 
         $this->userColors[$this->userId] = $this->generateRandomColor();
-
-        //$this->symbol = session('player')['symbol'];
     }
 
     #[On('echo:mouse-movement.{gameId},MouseMoved')]
