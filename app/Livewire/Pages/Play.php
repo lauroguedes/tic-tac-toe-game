@@ -12,11 +12,11 @@ use Livewire\Component;
 #[Layout('layouts.app')]
 class Play extends Component
 {
-    public string $gameKey;
+    public ?string $gameKey;
 
-    public ?string $gameId = null;
+    public ?string $gameId;
 
-    public ?string $symbol = null;
+    public ?string $symbol;
 
     #[Locked]
     public string $userId;
@@ -32,14 +32,18 @@ class Play extends Component
         return '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
     }
 
-    public function mount(string $gameKey = null): void
+    public function mount(?string $gameKey = null): void
     {
+        //ds(session()->exists('player'));
         if (!session()->has('player')) {
-            session()->put('player', [
-                'id' => str()->of(str()->ulid())->lower(),
+            //ds(session()->has('player'));
+            session(['player' => [
+                'id' => str()->of(str()->ulid())->lower()->value(),
                 'symbol' => $gameKey ? 'O' : 'X',
-            ]);
+            ]]);
         }
+
+        //dsd(session('player'));
 
         $this->gameKey = $gameKey ?? session('player')['id'];
 
@@ -49,7 +53,7 @@ class Play extends Component
 
         $this->gameId = Cache::get($this->gameKey);
 
-        $this->userId = session('player')['id'] . '_' . $this->gameId;
+        $this->userId = $this->gameKey . '_' . $this->gameId;
 
         $this->userColors[$this->userId] = $this->generateRandomColor();
     }
