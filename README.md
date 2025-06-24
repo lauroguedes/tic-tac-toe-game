@@ -6,8 +6,8 @@ This is a simple Tic Tac Toe game implemented in Laravel, Livewire and Reverb. T
 spaces on a 3x3 grid until one of them wins or the game ends in a draw. It allows players to play against each other in real-time.
 
 ### Stack
-- PHP 8.3
-- Laravel 11
+- PHP 8.3+
+- Laravel 12
 - Livewire 3
 - Reverb
 - Tailwind CSS
