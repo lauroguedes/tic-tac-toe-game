@@ -34,9 +34,7 @@ class Play extends Component
 
     public function mount(?string $gameKey = null): void
     {
-        //ds(session()->exists('player'));
         if (!session()->has('player')) {
-            //ds(session()->has('player'));
             session(['player' => [
                 'id' => str()->of(str()->ulid())->lower()->value(),
                 'symbol' => $gameKey ? 'O' : 'X',
@@ -54,8 +52,6 @@ class Play extends Component
         $this->gameId = Cache::get($this->gameKey);
 
         $this->userId = session('player')['id'] . '_' . $this->gameId;
-
-        ds($this->userId);
 
         $this->userColors[$this->userId] = $this->generateRandomColor();
     }

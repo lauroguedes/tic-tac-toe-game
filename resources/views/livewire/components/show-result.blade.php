@@ -49,17 +49,11 @@ new class extends Component {
 
     public function restartGame(): void
     {
-        Cache::forget("board_{$this->gameId}");
-
         RestartGame::dispatch($this->gameId);
     }
 
     public function finishGame(): void
     {
-        Cache::forget("game_{$this->gameId}");
-        Cache::forget("board_{$this->gameId}");
-        Cache::forget("active_player_{$this->gameId}");
-
         FinishGame::dispatch($this->gameId);
     }
 

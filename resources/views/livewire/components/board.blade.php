@@ -99,6 +99,8 @@ new class extends Component {
     #[On('echo:restart.{gameId},RestartGame')]
     public function restartGame(): void
     {
+        Cache::forget("board_{$this->gameId}");
+
         $gameStatus = Cache::get($this->gameStatusCacheKey);
 
         Cache::forget($this->gameStatusCacheKey);
@@ -125,11 +127,10 @@ new class extends Component {
     #[On('echo:finish.{gameId},FinishGame')]
     public function finishGame(): void
     {
+        Cache::forget("board_{$this->gameId}");
+        Cache::forget("active_player_{$this->gameId}");
         Cache::forget($this->gameStatusCacheKey);
         Cache::forget($this->gameKey);
-
-        session()->forget('player');
-        session()->forget("{$this->player['id']}_{$this->gameId}");
 
         redirect(route('game.home'));
     }
@@ -143,10 +144,6 @@ new class extends Component {
     #[On('close-game')]
     public function closeGame(): void
     {
-        Cache::forget("game_{$this->gameId}");
-        Cache::forget("board_{$this->gameId}");
-        Cache::forget("active_player_{$this->gameId}");
-
         FinishGame::dispatch($this->gameId);
     }
 
