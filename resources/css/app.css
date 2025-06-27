@@ -30,3 +30,20 @@ body {
     transform: translate(-50%, -50%);
     transition: left 0.1s ease-out, top 0.1s ease-out;
 }
+
+.notebook-container {
+    background-image:
+        linear-gradient(to right, transparent 39px, #dc2626 39px, #dc2626 41px, transparent 41px),
+        repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 24px,
+            #3b82f6 24px,
+            #3b82f6 25px
+        );
+    background-size: 100% 100%, 100% 25px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}

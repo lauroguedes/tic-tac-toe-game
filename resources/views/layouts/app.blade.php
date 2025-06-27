@@ -16,14 +16,14 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased caveat-font">
-        <div style="background-image: url('{{ asset('storage/images/bg_notebook_leaf.png') }}')" class="min-h-screen grid grid-cols-1 content-between p-6 bg-transparent bg-center bg-cover bg-no-repeat">
+        <div class="min-h-screen grid grid-cols-1 grid-flow-row bg-gray-100 content-between m-0 py-6">
             <header class="flex justify-center items-center">
                 <a href="/" wire:navigate>
                     <x-application-logo class="w-16 h-16 fill-current text-gray-500 -skew-x-12 opacity-40" />
                 </a>
             </header>
 
-            <main class="w-full flex flex-col justify-center items-center overflow-hidden">
+            <main class="notebook-container col-span-2 bg-white mx-8 md:w-[500px] md:h-[600px] p-8 rounded-md place-self-center flex flex-col justify-center items-center overflow-hidden">
                 {{ $slot }}
             </main>
 
