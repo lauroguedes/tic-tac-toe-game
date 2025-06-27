@@ -43,17 +43,19 @@ class Play extends Component
             ]]);
         }
 
-        //dsd(session('player'));
+        ds(session('player'));
 
         $this->gameKey = $gameKey ?? session('player')['id'];
 
-        if (!$gameKey) {
+        if (!$gameKey && !Cache::has($this->gameKey)) {
             Cache::forever($this->gameKey, uniqid('game_', true));
         }
 
         $this->gameId = Cache::get($this->gameKey);
 
-        $this->userId = $this->gameKey . '_' . $this->gameId;
+        $this->userId = session('player')['id'] . '_' . $this->gameId;
+
+        ds($this->userId);
 
         $this->userColors[$this->userId] = $this->generateRandomColor();
     }

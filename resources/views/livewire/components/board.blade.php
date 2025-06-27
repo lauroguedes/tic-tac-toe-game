@@ -6,7 +6,6 @@ use App\Events\StartMatch;
 use App\Utils\CheckGame;
 use App\Utils\GameStatus;
 use Illuminate\Support\Facades\Cache;
-use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Volt\Component;
 
