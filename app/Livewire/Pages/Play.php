@@ -41,8 +41,6 @@ class Play extends Component
             ]]);
         }
 
-        ds(session('player'));
-
         $this->gameKey = $gameKey ?? session('player')['id'];
 
         if (!$gameKey && !Cache::has($this->gameKey)) {
