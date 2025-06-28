@@ -7,7 +7,7 @@ new class extends Component {
 }; ?>
 
 <button data-clipboard-text="{{ $text }}"
-        class="copy-button underline hover:opacity-60 underline-offset-2 uppercase text-blue-700">Share
+        class="copy-button underline underline-offset-4 decoration-2 decoration-wavy decoration-red-700 hover:opacity-60 uppercase text-blue-700">Share
 </button>
 
 @script

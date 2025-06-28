@@ -42,8 +42,5 @@ body {
             #3b82f6 25px
         );
     background-size: 100% 100%, 100% 25px;
-    border: 1px solid #e5e5e5;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
+    @apply w-full md:w-[550px] md:max-h-[650px] grow flex flex-col justify-center items-center relative shadow-md border border-gray-300 bg-white p-8 rounded-md overflow-hidden
 }

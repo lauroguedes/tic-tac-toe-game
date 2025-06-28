@@ -169,7 +169,7 @@ new class extends Component {
     @if($this->gameStatus === GameStatus::InProgress)
         <livewire:components.active-player :active="$active == $player['id']"/>
 
-        <div class="w-full md:w-3/5 lg:w-1/2 xl:w-5/12 p-6 lg:p-4 mx-auto grid grid-cols-3 place-content-center">
+        <div class="w-full lg:w-11/12 p-6 lg:p-4 mx-auto grid grid-cols-3 place-content-center">
             @foreach($this->board as $y => $row)
                 @foreach($row as $x => $col)
                     <button :disabled="$wire.active != $wire.player['id']" wire:click="makeMove({{$y}}, {{$x}})"

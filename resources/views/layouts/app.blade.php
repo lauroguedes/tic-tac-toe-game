@@ -15,25 +15,25 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased caveat-font">
-        <div class="min-h-screen grid grid-cols-1 grid-flow-row bg-gray-100 content-between m-0 py-6">
-            <header class="flex justify-center items-center">
+    <body class="min-h-screen flex flex-col items-center py-4 font-sans text-gray-900 antialiased caveat-font">
+            <header class="flex w-full justify-center items-center">
                 <a href="/" wire:navigate>
                     <x-application-logo class="w-16 h-16 fill-current text-gray-500 -skew-x-12 opacity-40" />
                 </a>
             </header>
 
-            <main class="notebook-container col-span-2 bg-white mx-8 md:w-[500px] md:h-[600px] p-8 rounded-md place-self-center flex flex-col justify-center items-center overflow-hidden">
-                {{ $slot }}
+            <main class="grow w-full flex flex-col justify-center items-center p-5">
+                <div class="notebook-container">
+                    {{ $slot }}
+                </div>
             </main>
 
-            <footer class="text-center">
+            <footer class="w-full text-center">
                 <div class="text-gray-400 flex justify-center">
                     <span class="px-1">Crafted by an Artisan <a href="https://lauroguedes.dev" target="_blank" class="underline underline-offset-1 hover:text-gray-600">Lauro Guedes <span class="text-blue-300">:)</span></a></span> |
                     <a href="https://github.com/lauroguedes/tic-tac-toe-game" target="_blank" class="px-1 underline underline-offset-1 hover:text-gray-600">Github Project</a> |
                     <a href="https://buymeacoffee.com/lauroguedes" target="_blank" class="px-1 underline underline-offset-1 hover:text-gray-600">Buy me a coffee</a>
                 </div>
             </footer>
-        </div>
     </body>
 </html>

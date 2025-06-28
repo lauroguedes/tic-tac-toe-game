@@ -7,15 +7,10 @@ let start = new Date().getTime();
 const originPosition = { x: 0, y: 0 };
 
 const last = {
-    starTimestamp: start,
-    starPosition: originPosition,
     mousePosition: originPosition
 }
 
 const config = {
-    starAnimationDuration: 1500,
-    minimumTimeBetweenStars: 250,
-    minimumDistanceBetweenStars: 75,
     glowDuration: 75,
     maximumGlowPointSpacing: 10,
     colors: ["249 146 253", "252 254 255"],
@@ -43,25 +38,6 @@ const calcElapsedTime = (start, end) => end - start;
 
 const appendElement = element => document.body.appendChild(element),
     removeElement = (element, delay) => setTimeout(() => document.body.removeChild(element), delay);
-
-const createStar = position => {
-    const star = document.createElement("span"),
-        color = selectRandom(config.colors);
-
-    star.className = "star fa-star fas";
-
-    star.style.left = px(position.x);
-    star.style.top = px(position.y);
-    star.style.fontSize = selectRandom(config.sizes);
-    star.style.color = `rgb(${color})`;
-    star.style.textShadow = `0px 0px 1.5rem rgb(${color} / 0.5)`;
-    star.style.animationName = config.animations[count++ % 3];
-    star.style.starAnimationDuration = ms(config.starAnimationDuration);
-
-    appendElement(star);
-
-    removeElement(star, config.starAnimationDuration);
-}
 
 const createGlowPoint = position => {
     const glow = document.createElement("div");
@@ -115,12 +91,6 @@ const createGlow = (last, current) => {
     });
 }
 
-const updateLastStar = position => {
-    last.starTimestamp = new Date().getTime();
-
-    last.starPosition = position;
-}
-
 const updateLastMousePosition = position => last.mousePosition = position;
 
 const adjustLastMousePosition = position => {
@@ -147,16 +117,6 @@ const handleOnMove = e => {
     };
 
     adjustLastMousePosition(absolutePosition);
-
-    const now = new Date().getTime(),
-        hasMovedFarEnough = calcDistance(last.starPosition, absolutePosition) >= config.minimumDistanceBetweenStars,
-        hasBeenLongEnough = calcElapsedTime(last.starTimestamp, now) > config.minimumTimeBetweenStars;
-
-    if(hasMovedFarEnough || hasBeenLongEnough) {
-        createStar(absolutePosition);
-
-        updateLastStar(absolutePosition);
-    }
 
     createGlow(last.mousePosition, absolutePosition);
 
