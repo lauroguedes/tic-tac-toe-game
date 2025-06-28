@@ -2,7 +2,7 @@
 
 https://github.com/user-attachments/assets/1834acf3-aa23-41e3-bc34-ffcf9f630705
 
-This is a simple Tic Tac Toe game implemented in Laravel, Livewire and Reverb. The game allows two players to take turns marking
+This is a simple Tic Tac Toe game implemented in Laravel, Livewire with Volt and Reverb. The game allows two players to take turns marking
 spaces on a 3x3 grid until one of them wins or the game ends in a draw. It allows players to play against each other in real-time.
 
 ### Stack
