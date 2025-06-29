@@ -95,6 +95,17 @@ class Play extends Component
         )->toOthers();
     }
 
+    public function exception($e, $stopPropagation): void
+    {
+        if ($e instanceof \Pusher\PusherException) {
+            $this->addError('socket', 'Failed to connect to game server.');
+            $stopPropagation();
+        }
+
+        $this->addError('socket', 'Game server is not available at the moment.');
+        $stopPropagation();
+    }
+
     public function render()
     {
         return view('livewire.pages.play');

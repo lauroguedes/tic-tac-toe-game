@@ -44,5 +44,14 @@
             <span class="text-4xl text-gray-900/50">{{ $symbol }}</span>
         </div>
     </template>
+    @error('socket')
+        <div class="flex flex-col justify-center items-center absolute top-0 left-0 z-10 h-full w-full text-center align-middle bg-red-600/60 backdrop-blur-md text-red-100 p-5">
+            <h1 class="text-4xl font-bold">{{ $message }}</h1>
+            <p class="text-2xl mt-2">Please restart the game and try
+                again.</p>
+            <a href="{{ route('game.home') }}" wire:navigate class="p-3 text-xl text-white hover:opacity-70">( x ) Restart Game
+            </a>
+        </div>
+    @enderror
     <livewire:components.board :gameKey="$gameKey"/>
 </div>

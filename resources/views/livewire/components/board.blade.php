@@ -151,7 +151,6 @@ new class extends Component {
     {
         return $this->gameStatus !== (GameStatus::InProgress || GameStatus::Pending);
     }
-
 }; ?>
 
 <div>
